@@ -1,0 +1,20 @@
+{
+  "name": "mini-social-post-application-server",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.3",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
+  }
+}
