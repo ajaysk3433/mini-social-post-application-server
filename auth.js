@@ -5,10 +5,11 @@ const jwt = require("jsonwebtoken");
 
 router.post("/signup", (req, res) => {
   const data = req.body;
-
+  data.email = data.email.toLowerCase();
   (async () => {
     try {
-      const isExist = user.findOne({ email: data.email });
+      const isExist = await user.findOne({ email: data.email });
+
       if (isExist) {
         res.status(403).json({ isSuccess: false, err: "Email already exists" });
       } else {
@@ -31,6 +32,7 @@ router.post("/signup", (req, res) => {
 
 router.post("/login", (req, res) => {
   const data = req.body;
+  data.email = data.email.toLowerCase();
 
   (async () => {
     try {

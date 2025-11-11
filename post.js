@@ -40,7 +40,6 @@ router.post("/post/like", (req, res) => {
       .lean();
     //if already liked remove the like
     if (isAlreadyLiked.length > 0) {
-      console.log("isAlreadyLiked");
       const result = await post.updateOne(
         { _id: data.postId },
         {
@@ -56,7 +55,7 @@ router.post("/post/like", (req, res) => {
       });
     } else {
       // if not liked add like
-      console.log("not alreadyLike");
+
       const result = await post.updateOne(
         { _id: data.postId },
         {
@@ -114,7 +113,7 @@ router.post("/comments/create", (req, res) => {
         { _id: data.postID },
         { $push: { comments: { email: data.email, comment: data.comment } } },
       );
-      console.log(result);
+
       if (result.acknowledged) {
         res.status(200).json({ isSuccess: true });
       } else {
